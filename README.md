@@ -7,6 +7,8 @@ Unfortunately majority of my repositories are private.
 ![Lang stats][lang-stats-api]
 ![trophy][trophy-api]
 
+<a href="https://stackoverflow.com/users/1318830/mkungla"><img src="https://stackoverflow.com/users/flair/1318830.png?theme=dark" width="208" height="58" alt="profile for mkungla at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for mkungla at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
+
 [profile-link]: https://github.com/mkungla/mkungla
 [github-stats]: https://github-readme-stats.vercel.app/api?username=mkungla&show_icons=true&count_private=true&include_all_commits=true&hide_border=true&theme=dark&bg_color=00000000
 [lang-stats-api]: https://github-readme-stats.vercel.app/api/top-langs/?username=mkungla&layout=compact&langs_count=8&hide_border=true&theme=dark&bg_color=00000000
