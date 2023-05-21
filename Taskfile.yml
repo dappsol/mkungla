@@ -47,12 +47,14 @@ tasks:
       - task: release:tag
       - task: release:publish
 
+  # prepare release
   release:prepare:
     internal: true
     desc: prepare release
     cmds:
       - npm version --no-git-tag-version {{.VERSION}}
 
+  # create new tag
   release:tag:
     internal: true
     desc: create new tag
@@ -65,6 +67,7 @@ tasks:
       - git push
       - git push --tags
 
+  # https://goreleaser.com/
   release:publish:
     internal: true
     desc: Run GoReleaser either in snapshot or release mode
