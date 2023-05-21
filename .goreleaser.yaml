@@ -1,0 +1,33 @@
+project_name: mkungla.dev
+
+# https://goreleaser.com/customization/
+# https://goreleaser.com/customization/build/
+
+release:
+  # If set to true, will not auto-publish the release.
+  draft: false
+  github:
+    owner: mkungla
+    name: mkungla.dev
+
+builds:
+- skip: true
+
+checksum:
+  name_template: '{{ .ProjectName }}-{{ .Version }}-checksums.txt'
+
+changelog:
+  sort: desc
+  filters:
+    exclude:
+    - '^.github:'
+    - '^test:'
+    - 'README'
+    - 'build\(deps\): bump .* in /docs \(#\d+\)'
+    - Merge pull request
+    - Merge branch
+    - Merge remote-tracking branch
+
+before:
+  hooks:
+    - go mod tidy
