@@ -1,0 +1,25 @@
+{
+  "name": "mkungla",
+  "version": "0.0.1",
+  "description": "Software Architect/Engineer. WebXR, DevOps and Golang enthusiast.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkungla/mkungla.git"
+  },
+  "keywords": [
+    "mkungla",
+    "profile",
+    "go",
+    "c",
+    "rust",
+    "zig",
+    "webxr",
+    "php"
+  ],
+  "author": "Marko Kungla <marko@mkungla.dev>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/mkungla/mkungla/issues"
+  },
+  "homepage": "https://mkungla.dev"
+}
