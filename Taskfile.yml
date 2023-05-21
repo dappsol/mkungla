@@ -1,0 +1,9 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  sign:
+    desc: Signing files in repository.
+    cmds:
+      - gpg --yes --armor --detach-sign --default-key $(dig +short TXT gpg.fingerprint.mkungla.dev | tr -d '"') assets/README.md
