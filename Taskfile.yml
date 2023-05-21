@@ -17,7 +17,7 @@ tasks:
           ".github/workflows/release.yml"
           "assets/README.md"
           "Taskfile.yml"
-          ".goreleaser.yaml"
+          ".goreleaser.yml"
         )
         for FILE in "${FILES[@]}"; do
           if [ ! -f "$FILE.asc" ] || [ "$FILE" -nt "$FILE.asc" ]; then
