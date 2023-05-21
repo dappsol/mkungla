@@ -6,6 +6,7 @@ tasks:
     cmds:
       - |
         FILES=(
+          ".github/workflows/main.yml"
           "assets/README.md"
           "Taskfile.yml"
         )
