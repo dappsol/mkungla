@@ -44,15 +44,15 @@ jobs:
 
       - name: build
         run: |
-          mkdir -p dist/assets
-          cp -R ./assets/* dist/assets
-          cp -R ./src/* dist
+          mkdir -p dist-page/assets
+          cp -R ./assets/* dist-page/assets
+          cp -R ./src/* dist-page
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: './dist'
+          path: './dist-page'
 
   page-deploy:
     needs: page-build

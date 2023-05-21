@@ -39,4 +39,3 @@ jobs:
           find . -name '*.asc' | while read -r file; do
             gpg --verify "$file" "${file%.asc}"
           done
-
