@@ -1,9 +1,18 @@
-# https://taskfile.dev
-
 version: '3'
 
 tasks:
   sign:
     desc: Signing files in repository.
     cmds:
-      - gpg --yes --armor --detach-sign --default-key $(dig +short TXT gpg.fingerprint.mkungla.dev | tr -d '"') assets/README.md
+      - |
+        FILES=(
+          "assets/README.md"
+          "Taskfile.yml"
+        )
+        for FILE in "${FILES[@]}"; do
+          if [ ! -f "$FILE.asc" ] || [ "$FILE" -nt "$FILE.asc" ]; then
+            gpg --yes --armor --detach-sign --default-key $(dig +short TXT gpg.fingerprint.mkungla.dev | tr -d '"') "$FILE"
+          else
+            echo "No changes to $FILE, no need to update the signature."
+          fi
+        done

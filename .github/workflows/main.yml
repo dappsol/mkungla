@@ -1,0 +1,27 @@
+name: main
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-signatures:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Import GPG key
+        run: |
+          gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys 5752D8551F78CEE4542F5693F2AFEDFD305C790F
+
+      - name: Check signatures
+        run: |
+          find . -name '*.asc' | while read -r file; do
+            gpg --verify "$file" "${file%.asc}"
+          done
