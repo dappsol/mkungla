@@ -8,7 +8,7 @@ release:
   draft: false
   github:
     owner: mkungla
-    name: mkungla.dev
+    name: mkungla
 
 builds:
 - skip: true
