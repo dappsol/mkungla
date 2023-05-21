@@ -1,5 +1,7 @@
 version: '3'
 
+dotenv: ['.env']
+
 vars:
   VERSION:
     sh: svu n
@@ -12,7 +14,7 @@ tasks:
     cmds:
       - |
         FILES=(
-          ".github/workflows/main.yml"
+          ".github/workflows/release.yml"
           "assets/README.md"
           "Taskfile.yml"
           ".goreleaser.yaml"

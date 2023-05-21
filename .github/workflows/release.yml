@@ -1,14 +1,9 @@
-name: main
+name: Deploy on release
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  release:
+    types:
+      - released
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -40,3 +35,35 @@ jobs:
             gpg --verify "$file" "${file%.asc}"
           done
 
+  page-build:
+    needs: check-signatures
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: build
+        run: |
+          mkdir -p dist/assets
+          cp -R ./assets/* dist/assets
+          cp -R ./src/* dist
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload entire repository
+          path: './dist'
+
+  page-deploy:
+    needs: page-build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
