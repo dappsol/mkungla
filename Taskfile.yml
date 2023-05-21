@@ -51,17 +51,17 @@ tasks:
     internal: true
     desc: prepare release
     cmds:
-      - npm version --no-git-tag-version {{.NEXT}}
+      - npm version --no-git-tag-version {{.VERSION}}
 
   release:tag:
     internal: true
     desc: create new tag
     cmds:
-      - echo "🎉 release new version {{.NEXT}} 🚀"
+      - echo "🎉 release new version {{.VERSION}} 🚀"
       - git add -A
       - |
-        git commit -sm "ci: 🔧 prepare {{.NEXT}} release"
-      - git tag -sm "{{.NEXT}}" {{.NEXT}}
+        git commit -sm "ci: 🔧 prepare {{.VERSION}} release"
+      - git tag -sm "{{.VERSION}}" {{.VERSION}}
       - git push
       - git push --tags
 
